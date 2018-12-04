@@ -1,0 +1,12 @@
+experiment with multiple sizes of experts?
+should I do a 1 to 1 comparison of ensemble and experts, same amount of models and parameters?
+how do I pick a fair number of models for both experiments?
+ideas for figures: show pictures of outlier/unusual images of the fashion mnist data set
+show partition of data after kmeans (pi charts?)
+how partition of data after randomly selecting portions for ensemble method (pi charts again?)
+show time to train and accuracy across different numbers of models
+show two bell curves for the two different confidence intervals for the models
+should I shuffle my data once and use that same ordering for both experiments?
+how should I sample for my ensemble?
+should I do k mean clustering on the entire data set, or only on the training set?
+kmeans visualization do clustering then project to 2d, use a sample to visualize
