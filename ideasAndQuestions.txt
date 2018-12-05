@@ -10,3 +10,10 @@ should I shuffle my data once and use that same ordering for both experiments?
 how should I sample for my ensemble?
 should I do k mean clustering on the entire data set, or only on the training set?
 kmeans visualization do clustering then project to 2d, use a sample to visualize
+
+show confidence interval for accuracy over different numbers of models to train
+also show confidence interval for time over different numer of models to train, do this both for
+mixture of experts with kmeans time included, mixture of experts without kmeans time included, kmeans time,
+and ensemble method time
+MAKE SURE to save data for training on each fold for mixture of experts and for the kmeans, so I can combine
+their times to get a confidence interval of them combined
