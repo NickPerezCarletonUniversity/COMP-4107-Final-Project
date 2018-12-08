@@ -17,3 +17,4 @@ mixture of experts with kmeans time included, mixture of experts without kmeans 
 and ensemble method time
 MAKE SURE to save data for training on each fold for mixture of experts and for the kmeans, so I can combine
 their times to get a confidence interval of them combined
+what should we assume is the reader's understanding?
