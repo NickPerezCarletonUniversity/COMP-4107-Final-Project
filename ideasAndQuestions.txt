@@ -1,20 +1,21 @@
-experiment with multiple sizes of experts?
-should I do a 1 to 1 comparison of ensemble and experts, same amount of models and parameters?
-how do I pick a fair number of models for both experiments?
-ideas for figures: show pictures of outlier/unusual images of the fashion mnist data set
-show partition of data after kmeans (pi charts?)
-how partition of data after randomly selecting portions for ensemble method (pi charts again?)
+ideas for figures: show pictures of outlier/unusual images of the fashion mnist data set. can do this by finding
+images that are furthest away from the average of the data set (or some other method) mnist has unusual handwritten 
+digits, some 5's will look all squiggly or weird (there must be the equivalent in fashion mnist). 
+show standard images of fashion mnist
 show time to train and accuracy across different numbers of models
-show two bell curves for the two different confidence intervals for the models
-should I shuffle my data once and use that same ordering for both experiments?
-how should I sample for my ensemble?
-should I do k mean clustering on the entire data set, or only on the training set?
-kmeans visualization do clustering then project to 2d, use a sample to visualize
+kmeans visualization do clustering then project to 2d, use a sample to visualize what classes belong to each cluster
+ex: sample 100 images. you will see some cluster have mostly sweaters for example (maybe 5 sweaters, and 2 shoes belong to
+one cluster, and then another cluster has 5 pants and 3 shirts) this can be used to illustrate the effects of clustering
 
 show confidence interval for accuracy over different numbers of models to train
 also show confidence interval for time over different numer of models to train, do this both for
-mixture of experts with kmeans time included, mixture of experts without kmeans time included, kmeans time,
+mixture of experts with kmeans time included, mixture of experts without kmeans time included, kmeans training time,
 and ensemble method time
-MAKE SURE to save data for training on each fold for mixture of experts and for the kmeans, so I can combine
-their times to get a confidence interval of them combined
-what should we assume is the reader's understanding?
+^^^The idea behind this is that kmeans takes a long time to compute, but in the real world it will probably only be
+computed once, whereas training mixture of experts may be done many times, for finding the best parameters (ex: learning
+rate)
+MAKE SURE to save data for training time taken on each fold for mixture of experts and for the kmeans, 
+so we can combine their times to get a confidence interval of them combined, and also show graphs of the intervals
+for them seperately.
+what should we assume is the reader's understanding? answer: a class mate. we only need to explain mixture of experts
+and ensemble method as a result
