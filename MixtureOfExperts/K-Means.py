@@ -1,12 +1,7 @@
-#trying to implement ensemble method
-#https://datascience.stackexchange.com/questions/27169/taking-average-of-multiple-neural-networks
-#mixture of experts 'with kmeans'
-#https://en.wikipedia.org/wiki/Mixture_of_experts
-#combining models together university of Tartu
-#https://courses.cs.ut.ee/MTAT.03.277/2014_fall/uploads/Main/deep-learning-lecture-9-combining-multiple-neural-networks-to-improve-generalization-andres-viikmaa.pdf
 import tensorflow as tf
 import numpy as np
 from sklearn.cluster import KMeans, MiniBatchKMeans
+import time
 
 (trX, trY), (teX, teY) = tf.keras.datasets.fashion_mnist.load_data()
 
@@ -20,12 +15,33 @@ print(trX.shape)
 folds = 10
 size_of_fold = int(len(trX)/folds)
 
-answer = []
-for i in range(2,10):
+average_time_to_train = []
+times_to_train = []
+
+begin = 2
+end = 11
+
+for i in range(begin, end):
+    times_to_train.append([])
+
+for i in range(begin, end):
     print(i)
     for fold in range(0,folds):
         temp = np.vstack((trX[0:fold*size_of_fold], trX[(fold + 1)*size_of_fold:len(trX)]))
         print(temp.shape)
+        time_start = time.process_time()
         kmeans = KMeans(n_clusters=i, random_state=0).fit(temp)
+        time_stop = time.process_time()
+        times_to_train[i-begin].append(time_stop - time_start)
         np.save('kmeansclusters/' + str(i) + 'fold' + str(fold) + '.npy', kmeans.cluster_centers_)
-        np.save('kmeanslabels/' + str(i) + 'fold' + str(fold) + '.npy', kmeans.labels_)
+
+times_to_train = np.asarray(times_to_train)
+
+print(times_to_train)
+
+times_to_train = np.asarray(times_to_train)
+
+np.save('kmeans_computation_time_per_fold.npy', times_to_train)
+
+        
+    
