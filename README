@@ -1,0 +1,36 @@
+Date: 12/16/18
+Authors: 
+	Adam Ali 101004367
+	Nick Perez 100978917
+
+
+Source Files:
+In each directory you will find jupyter notebook files and their corresponding equivalent 
+python files with the same name. Here is a list of files and what they do:
+
+MixtureOfExperts/K-means.py - Computes K-means clusters and labels for all the training data
+for each k-fold. It also saves these clusters and labels along with the time required to
+compute them for each fold in numpy arrays saved inside .npy files. By default it computes
+clusters for the number of clusters equal to 2 all the way to 10.
+
+EnsembleMethod/EnsembleMethodMLP.py - runs the ensemble method on a range of number of models
+from 2 to 10 for 3 epochs and then saves the accuracy and time to train in .npy files. 
+Parameters can be changed inside the python file from lines 65 to 79 to adjust epochs, number
+of k-folds, and number of models trained.
+
+MixtureOfExperts/MixtureOfExpertsMLP.py - runs mixture of experts on a range of number of models
+from 2 to 10 for 3 epochs and then saves the accuracy and time to train in .npy files. 
+Parameters can be changed inside the python file from lines 66 to 77 to adjust epochs, number
+of k-folds, and number of models trained.
+
+1EpochResults.py - Reads the test results generated from experiments after 1 epoch and plots 
+them using matplotlib.
+
+3EpochResults.py - Reads the test results generated from experiments after 3 epochs and plots 
+them using matplotlib.
+
+Operating Instructions:
+Each of these files can be ran by typing in: python filename.py
+inside of a command prompt terminal while inside the directory for that file. Saved files for
+displaying graph results will not be overwritten except for in the case of running the 
+K-means.py file.
